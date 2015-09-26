@@ -138,11 +138,6 @@ $(function () {
         } else {
             expandee.css('display', 'block');
             clicked.addClass('opened');
-
-            // scroll expandee into view
-            //expandeeOffset = expandee.offset();
-            //expandeeHeight = expandee.outerHeight();
-            //searchForm.animate({ scrollTop: expandeeOffset.top + expandeeHeight }, 300);
             clicked[0].scrollIntoView();
         }
     }
@@ -189,7 +184,6 @@ $(function () {
         var divHead = target.find('.modalHeader');
         var divBody = target.find('#submitAllWarning');
         var spanCancel = target.find('#cancelSpan');
-        //var aSubmit;
         var modalSubmitAllBtn = target.find('#submit');
         divHead.append('<h2>Warning</h2>');
 
@@ -315,7 +309,6 @@ $(function () {
 
     function openPrintCallListWindow(e) {
         window.open($(e.target).data("url"), '', 'width=800,height=480');
-
         return false;
     }
 
@@ -403,9 +396,7 @@ $(function () {
         var results = $(".searchResultList");
         var castingCompanyId = results.data("castingcompanyid");
         var roleId = results.data("roleid");
-
         var url = ["/ccd/badbox/SendSelects.aspx?id=", castingCompanyId, "&roleId=", roleId].join("");
-
         $('<iframe class="sendSelects" src="' + url + '">').dialog({
             width: 610,
             height: 407
@@ -604,12 +595,9 @@ $(function () {
         continueButton.on('click', function () {
             if (!$(this).hasClass('disabled')) {
                 var talentSelectValue = $(talentSelect).val();
-                // alert($("#priorityCheckBoxes input:checked").attr('ref') + " talentSelectValue:" + talentSelectValue);
-
                 groupActions.moveToRoleProps.selectPriortyArr = $('#priorityCheckBoxes input:checkbox:checked').map(function () {
                     return $(this).attr('ref');
                 }).get();
-
                  groupActions.selectivityID =  groupActions.moveToRoleProps.selectPriortyArr;  
 
                 // TODO: add logic to grab talent selection from the "For" drop down
@@ -630,7 +618,6 @@ $(function () {
                 }
             }
         });
-
         // now, actually create the modal using jqueryUI .dialog() method
         modal.dialog();
 
@@ -719,14 +706,10 @@ $(function () {
             .text(role.Name);
 
             if (currentRole == role.Name) {
-                // alert(window.location.href.indexOf("search");
-                //if(window.location.href.indexOf("search") > -1) {
                 option.prop('disabled', true);
-                //}
             }
             roleSelect.append(option);
         };
-
         // finally create the modal
         modal.dialog({ width: 550 });
     }
@@ -876,10 +859,6 @@ $(function () {
         modal.dialog({ width: 660 });
     }
 
-
-
-
-
     // END BUILD GROUP ACTIONS 'CONTACT TALENT' MODAL
 
 
@@ -1025,11 +1004,6 @@ $(function () {
             window.location.href = window.location.protocol + "//" + window.location.host + url;
         }
     }
-
-
-
-
-
 
 
     /*
